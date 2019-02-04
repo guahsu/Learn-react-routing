@@ -11,21 +11,21 @@ axios.defaults.headers.post['Content-Type'] = 'application/JSON'
 
 axios.interceptors.request.use(
   request => {
-    console.log('interceptors-request:', request)
+    // console.log('interceptors-request:', request)
     return request
   },
   error => {
-    console.log('interceptors-request-error:', error)
+    // console.log('interceptors-request-error:', error)
     return Promise.reject(error)
   }
 )
 axios.interceptors.response.use(
   response => {
-    console.log('interceptors-response:', response)
+    // console.log('interceptors-response:', response)
     return response
   },
   error => {
-    console.log('interceptors-response-error:', error)
+    // console.log('interceptors-response-error:', error)
     return Promise.reject(error)
   }
 )
