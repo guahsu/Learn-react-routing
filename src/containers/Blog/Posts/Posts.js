@@ -15,11 +15,11 @@ class Posts extends Component {
   }
 
   componentDidMount () {
-    const random = Math.random().toFixed(1)
-    const url = random >= 0.3 ? '/posts' : 'WrongUrl'
-    console.log(`if random < 0.3, get wrong url, random: ${random}, url: ${url}`)
+    // const random = Math.random().toFixed(1)
+    // const url = random >= 0.3 ? '/posts' : 'WrongUrl'
+    // console.log(`if random < 0.3, get wrong url, random: ${random}, url: ${url}`)
     axios
-      .get(url)
+      .get('/posts')
       .then(res => {
         const posts = res.data.slice(0, 4)
         const updatedPosts = posts.map(post => {
