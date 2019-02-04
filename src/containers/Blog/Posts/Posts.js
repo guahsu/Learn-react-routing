@@ -18,6 +18,7 @@ class Posts extends Component {
     // const random = Math.random().toFixed(1)
     // const url = random >= 0.3 ? '/posts' : 'WrongUrl'
     // console.log(`if random < 0.3, get wrong url, random: ${random}, url: ${url}`)
+    console.log(this.props)
     axios
       .get('/posts')
       .then(res => {
