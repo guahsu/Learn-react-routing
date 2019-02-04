@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import classes from './Post.module.css'
+import './Posts.css'
 // import FullPost from '../../components/FullPost/FullPost'
 // import NewPost from '../../components/NewPost/NewPost'
 import Post from '../../../components/Post/Post'
@@ -76,7 +76,7 @@ class Posts extends Component {
       })
     }
     return (
-      <section className={classes.Post}>
+      <section className='Posts'>
         {posts}
       </section>
     )
