@@ -1,23 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './Posts.css'
-// import FullPost from '../../components/FullPost/FullPost'
-// import NewPost from '../../components/NewPost/NewPost'
 import Post from '../../../components/Post/Post'
 
 class Posts extends Component {
   state = {
     posts: [],
     selectedPostId: null,
-    selectedPostContent: null,
-    selectedPostLoading: false,
     error: false
   }
 
   componentDidMount () {
-    // const random = Math.random().toFixed(1)
-    // const url = random >= 0.3 ? '/posts' : 'WrongUrl'
-    // console.log(`if random < 0.3, get wrong url, random: ${random}, url: ${url}`)
     console.log(this.props)
     axios
       .get('/posts')
@@ -37,17 +30,8 @@ class Posts extends Component {
       })
   }
 
-  postSelectedHandler = id => {
-    if (this.state.selectedPostId !== id) {
-      this.setState({ selectedPostLoading: true })
-      axios.get(`/posts/${id}`).then(res => {
-        this.setState({
-          selectedPostId: id,
-          selectedPostContent: res.data,
-          selectedPostLoading: false
-        })
-      })
-    }
+  postSelectedHandler = (id) => {
+    this.setState({ selectedPostId: id })
   }
 
   postDeletePostHandler = () => {
@@ -71,7 +55,6 @@ class Posts extends Component {
             title={post.title}
             author={post.author}
             clicked={() => this.postSelectedHandler(post.id)}
-            key={post.id}
           />
         )
       })
