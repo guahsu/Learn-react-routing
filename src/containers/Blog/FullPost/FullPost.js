@@ -9,7 +9,6 @@ class FullPost extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props)
     if (this.props.match.params.id) {
       if (!this.state.loadedPost || this.state.loadedPost.id !== this.props.match.params.id) {
         axios.get(`/posts/${this.props.match.params.id}`)
@@ -25,12 +24,12 @@ class FullPost extends Component {
       .then(res => {
         if (res.status === 200) {
           window.alert('Delete Post Success !')
+          this.props.history.push({ pathname: '/' })
         }
       })
   }
 
   render () {
-    console.log(this.props)
     let post = <p style={{ textAlign: 'center' }}>Please select a Post!</p>
     if (this.props.match.params.id) {
       post = <p style={{ textAlign: 'center' }}>Loading...!</p>
