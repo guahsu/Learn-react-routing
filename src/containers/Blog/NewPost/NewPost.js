@@ -26,7 +26,7 @@ class NewPost extends Component {
       .then(res => {
         if (res.status === 201) {
           window.alert('Success !')
-          this.props.history.push('/posts')
+          this.props.history.replace('/posts')
           // this.setState({ submitted: true })
         } else {
           window.alert('Something went wrong !')
