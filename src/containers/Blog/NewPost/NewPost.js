@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import axios from '../../../axios'
 
 import './NewPost.css'
@@ -8,8 +8,8 @@ class NewPost extends Component {
   state = {
     title: '',
     content: '',
-    author: 'Max',
-    submitted: false
+    author: 'Max'
+    // submitted: false
   }
 
   componentDidMount () {
@@ -26,7 +26,8 @@ class NewPost extends Component {
       .then(res => {
         if (res.status === 201) {
           window.alert('Success !')
-          this.setState({ submitted: true })
+          this.props.history.push('/posts')
+          // this.setState({ submitted: true })
         } else {
           window.alert('Something went wrong !')
         }
@@ -34,10 +35,10 @@ class NewPost extends Component {
   }
 
   render () {
-    const redirect = this.state.submitted ? <Redirect to='posts' /> : null
+    // const redirect = this.state.submitted ? <Redirect to='posts' /> : null
     return (
       <div className='NewPost'>
-        {redirect}
+        {/* {redirect} */}
         <h1>Add a Post</h1>
         <label>Title</label>
         <input type='text' value={this.state.title} onChange={event => this.setState({ title: event.target.value })} />
